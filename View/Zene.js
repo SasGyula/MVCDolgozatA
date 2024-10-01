@@ -8,8 +8,8 @@ export class Zene{
         this.#szuloElem = szuloElem
         this.#objektum = objektum
         this.#megjelenit()
-        this.#gombElem = $("button")
-        this.#gombElem.on("click",()=>{
+        this.#gombElem = $("button:last")
+        this.#gombElem.on("click",(event)=>{
             this.#esemeny("katt")
         }) 
     }
@@ -20,6 +20,7 @@ export class Zene{
         <img src="${this.#objektum.borito}">
         <h3>${this.#objektum.nev}</h3>
         <p>${this.#objektum.eloado}</p>
+        <p>${this.#objektum.raktaron}</p>
         <button id="${this.#id}">Kosárba</button>
         <div>
         `

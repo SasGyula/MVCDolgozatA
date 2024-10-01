@@ -1,17 +1,26 @@
+
+import { ZENÉK } from "../adat.js"
+
 export class Modell{
     #kosarLista = []
     #lista = []
-    #szuloElem
-    #Elem
-    constructor(szuloElem, lista, Elem){
-        this.#lista = lista
-        this.#szuloElem = szuloElem
-        this.#Elem = Elem
-        this.#megjelenit(this.#lista, this.#szuloElem, this.#Elem)
+    constructor(){
+        this.#lista = ZENÉK
+        this.#kosarLista = []
     }
-    #megjelenit(lista,szuloElem, Elem){
-        for(let i = 0; i<lista.length; i++){
-            new Elem(i,szuloElem,lista[i])
+    getLista(){
+        return this.#lista
+    }
+    setLista(id){
+        this.#lista[id].raktaron--
+        if(this.#lista[id].raktaron < 0){
+            this.#lista[id].raktaron = 0
         }
+    }
+    kosarba(id){
+        this.#kosarLista.push(this.#lista[id])
+    }
+    getKosarlista(){
+        return this.#kosarLista
     }
 }
